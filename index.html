@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chat n8n</title>
+  <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #f4f6f8;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    #chat-container {
+      width: 400px;
+      height: 600px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.1);
+      border-radius: 10px;
+      overflow: hidden;
+      background: white;
+    }
+  </style>
+</head>
+<body>
+  <div id="chat-container"></div>
+
+  <script type="module">
+    import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+
+    createChat({
+      webhookUrl: 'https://n8n-xuk2.onrender.com/webhook/beeb69da-a60a-4b73-a476-e91607d31b77/chat',
+      target: '#chat-container',
+      mode: 'fullscreen', // puedes cambiar a 'window' si prefieres un botón flotante
+      title: 'Asistente n8n 🤖',
+      subtitle: 'Pregúntame lo que quieras',
+      inputPlaceholder: 'Escribe tu mensaje...',
+      theme: {
+        colorPrimary: '#4f46e5'
+      }
+    });
+  </script>
+</body>
+</html>
